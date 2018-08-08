@@ -1,6 +1,11 @@
 #!/bin/bash
-cd ~/cs252/d1/.sd
-rm *.jpg *.html *.txt *.asp
+directory="~/.apod/"
+if [ ! -d $directory ];then
+   mkdir ~/.apod/
+else
+	rm *.jpg *.html *.txt *.asp
+fi
+cd ~/.apod
 a='https://spark.adobe.com/page/GSqkwEOt7dqNx/'
 wget "$a"
 base='https://spark.adobe.com/page/GSqkwEOt7dqNx/'
