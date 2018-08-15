@@ -1,11 +1,12 @@
 #!/bin/bash
-directory="~/.apod/"
+directory="$HOME/.apod/"
 if [ ! -d $directory ];then
    mkdir ~/.apod/
+   cd ~/.apod
 else
-	rm *.jpg *.html *.txt *.asp
+	cd ~/.apod
+	rm *.jpg *.html
 fi
-cd ~/.apod
 a='https://spark.adobe.com/page/GSqkwEOt7dqNx/'
 wget "$a"
 base='https://spark.adobe.com/page/GSqkwEOt7dqNx/'
@@ -16,3 +17,4 @@ wget -O "back.jpg" $c
 imname=$(find *.jpg)
 /usr/bin/gsettings set org.gnome.desktop.background picture-uri "file:///$(pwd)/$imname"
 cd 
+
